@@ -6,8 +6,6 @@ use eDreams\Database\Services\MigrationsService;
 
 /**
  * Class MigrationsServiceFactory.
- *
- * @package NunoLopes\DomainContacts
  */
 class MigrationsServiceFactory
 {
