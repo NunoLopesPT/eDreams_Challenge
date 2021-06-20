@@ -3,7 +3,8 @@
   "description": "eDreams",
   "autoload": {
     "psr-4": {
-      "eDreams\\": "src/",
+      "eDreams\\Domain\\": "src/Domain",
+      "eDreams\\Application\\": "src/Application",
       "eDreams\\Database\\": "database"
     }
   },
