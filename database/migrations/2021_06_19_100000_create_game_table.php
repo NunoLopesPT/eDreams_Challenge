@@ -43,7 +43,9 @@ class CreateGameTable extends AbstractMigration
                     ->on('users');
 
                 $table->unsignedBigInteger('winner_id')
+                    ->default(null)
                     ->nullable(true);
+
                 $table->foreign('winner_id')
                     ->references('id')
                     ->on('users');
