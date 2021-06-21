@@ -7,15 +7,6 @@ use eDreams\Domain\Entities\Game;
 interface GameRepository
 {
     /**
-     * Create a Game into the database.
-     *
-     * @param Game $game
-     *
-     * @return Game
-     */
-    public function create(Game $game): Game;
-
-    /**
      * Get a Game by its ID.
      *
      * @param int $id
@@ -23,6 +14,15 @@ interface GameRepository
      * @return Game
      */
     public function getById(int $id): Game;
+
+    /**
+     * Create a Game into the persistence layer.
+     *
+     * @param Game $game
+     *
+     * @return Game
+     */
+    public function create(Game $game): Game;
 
     /**
      * Update a Game and its aggregates.
