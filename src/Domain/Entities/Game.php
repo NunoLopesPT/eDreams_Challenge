@@ -51,7 +51,7 @@ class Game
         return $this->user2;
     }
 
-    public function winner(): User
+    public function winner(): ?User
     {
         return $this->winner;
     }
