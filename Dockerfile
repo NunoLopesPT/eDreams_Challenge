@@ -16,3 +16,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY ./ /app
 
 RUN composer install --no-interaction --prefer-dist
+
+CMD [ "php", './index.php database:migrate']
