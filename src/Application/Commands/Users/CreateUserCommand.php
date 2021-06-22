@@ -8,6 +8,8 @@ use eDreams\Domain\Factories\Services\UserServiceFactory;
 
 class CreateUserCommand extends Command
 {
+    public const description = '{user_name}';
+
     private static function validate(array $args): void
     {
         if (empty($args)) {
