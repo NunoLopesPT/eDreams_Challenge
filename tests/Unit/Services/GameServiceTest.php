@@ -5,8 +5,10 @@ namespace eDreams\Tests\Unit\Services;
 use eDreams\Domain\Contracts\Repositories\GameRepository;
 use eDreams\Domain\Entities\Game;
 use eDreams\Domain\Entities\User;
+use eDreams\Domain\Exceptions\Game\ColumnOffLimitsNumberException;
 use eDreams\Domain\Exceptions\Game\GameIsAlreadyFinishedException;
 use eDreams\Domain\Exceptions\Game\PositionWithAMoveAlready;
+use eDreams\Domain\Exceptions\Game\RowOffLimitsNumberException;
 use eDreams\Domain\Services\GameService;
 use eDreams\Domain\ValueObjects\TicTacToe\Move;
 use eDreams\Domain\ValueObjects\TicTacToe\Position;
@@ -46,6 +48,34 @@ class GameServiceTest extends TestCase
         $game = $this->gameService->startGame($user1, $user2);
 
         $this->assertInstanceOf(Game::class, $game);
+    }
+
+    public function testMakePlayWithColumnOffLimits(): void
+    {
+        $game = $this->createMock(Game::class);
+        $game->expects($this->once())
+            ->method('isFinished')
+            ->willReturn(false);
+
+        $position = new Position(0, 3);
+
+        $this->expectException(ColumnOffLimitsNumberException::class);
+
+        $this->gameService->makePlay($game, $position);
+    }
+
+    public function testMakePlayWithRowOffLimits(): void
+    {
+        $game = $this->createMock(Game::class);
+        $game->expects($this->once())
+            ->method('isFinished')
+            ->willReturn(false);
+
+        $position = new Position(3, 0);
+
+        $this->expectException(RowOffLimitsNumberException::class);
+
+        $this->gameService->makePlay($game, $position);
     }
 
     public function testMakePlayWithGameFinished(): void
