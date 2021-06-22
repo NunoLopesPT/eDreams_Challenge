@@ -35,6 +35,6 @@ $command = $routes[array_shift($args)];
 try {
     $command::handle($args);
 } catch (\Exception $e) {
-    echo $e->getMessage();
+    echo $e->getMessage() . "\n";
     exit(1);
 }
