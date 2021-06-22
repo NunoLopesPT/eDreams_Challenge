@@ -12,9 +12,9 @@ use eDreams\Domain\Repositories\Database\Illuminate\GamePlaysRepository;
 use eDreams\Domain\Repositories\Database\Illuminate\UsersRepository;
 use eDreams\Domain\ValueObjects\TicTacToe\Move;
 use eDreams\Domain\ValueObjects\TicTacToe\Position;
-use PHPUnit\Framework\TestCase;
+use eDreams\Tests\Integration\AbstractTest;
 
-class GamePlaysRepositoryTest extends TestCase
+class GamePlaysRepositoryTest extends AbstractTest
 {
     private GamePlaysRepository $gamePlaysRepository;
     private GameRepository $gameRepository;

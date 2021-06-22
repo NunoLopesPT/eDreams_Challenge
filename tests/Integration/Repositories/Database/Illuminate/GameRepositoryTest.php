@@ -10,9 +10,9 @@ use eDreams\Domain\Factories\Repositories\GamesRepositoryFactory;
 use eDreams\Domain\Factories\Repositories\UsersRepositoryFactory;
 use eDreams\Domain\Repositories\Database\Illuminate\GamesRepository;
 use eDreams\Domain\Repositories\Database\Illuminate\UsersRepository;
-use PHPUnit\Framework\TestCase;
+use eDreams\Tests\Integration\AbstractTest;
 
-class GameRepositoryTest extends TestCase
+class GameRepositoryTest extends AbstractTest
 {
     private GamesRepository $gamesRepository;
     private UsersRepository $usersRepository;

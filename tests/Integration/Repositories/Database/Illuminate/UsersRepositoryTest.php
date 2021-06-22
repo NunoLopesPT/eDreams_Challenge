@@ -8,9 +8,9 @@ use eDreams\Domain\Exceptions\Users\UserHasNoIdException;
 use eDreams\Domain\Exceptions\Users\UserNotFoundException;
 use eDreams\Domain\Factories\Repositories\UsersRepositoryFactory;
 use eDreams\Domain\Repositories\Database\Illuminate\UsersRepository;
-use PHPUnit\Framework\TestCase;
+use eDreams\Tests\Integration\AbstractTest;
 
-class UsersRepositoryTest extends TestCase
+class UsersRepositoryTest extends AbstractTest
 {
     private UsersRepository $usersRepository;
 
