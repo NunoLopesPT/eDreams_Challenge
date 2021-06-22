@@ -14,7 +14,7 @@
     }
   },
   "require": {
-    "php": "8.0.1",
+    "php": "^8.0",
     "illuminate/database": "^8.0",
     "illuminate/filesystem": "^8.47"
   },
