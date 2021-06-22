@@ -34,13 +34,15 @@ class CreateGameTable extends AbstractMigration
                     ->nullable(false);
                 $table->foreign('user1_id')
                     ->references('id')
-                    ->on('users');
+                    ->on('users')
+                    ->cascadeOnDelete();
 
                 $table->unsignedBigInteger('user2_id')
                     ->nullable(false);
                 $table->foreign('user2_id')
                     ->references('id')
-                    ->on('users');
+                    ->on('users')
+                    ->cascadeOnDelete();
 
                 $table->unsignedBigInteger('winner_id')
                     ->default(null)
@@ -48,7 +50,8 @@ class CreateGameTable extends AbstractMigration
 
                 $table->foreign('winner_id')
                     ->references('id')
-                    ->on('users');
+                    ->on('users')
+                    ->cascadeOnDelete();
 
                 $table->boolean('is_finished')
                     ->nullable(false)

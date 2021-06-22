@@ -32,13 +32,15 @@ class CreateGamePlaysTable extends AbstractMigration
                     ->nullable(false);
                 $table->foreign('game_id')
                     ->references('id')
-                    ->on('game');
+                    ->on('game')
+                    ->cascadeOnDelete();
 
                 $table->unsignedBigInteger('user_id')
                     ->nullable(false);
                 $table->foreign('user_id')
                     ->references('id')
-                    ->on('users');
+                    ->on('users')
+                    ->cascadeOnDelete();
 
                 $table->tinyInteger('row', false, true)
                     ->nullable(false);
