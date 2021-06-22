@@ -2,8 +2,8 @@
 
 namespace eDreams\Domain\ValueObjects\TicTacToe;
 
-use eDreams\Domain\Exceptions\Game\ColumnWithNegativeNumberException;
-use eDreams\Domain\Exceptions\Game\RowWithNegativeNumberException;
+use eDreams\Domain\Exceptions\Game\ColumnOffLimitsNumberException;
+use eDreams\Domain\Exceptions\Game\RowOffLimitsNumberException;
 
 class Position
 {
@@ -16,17 +16,17 @@ class Position
      * @param int $row
      * @param int $column
      *
-     * @throws ColumnWithNegativeNumberException
-     * @throws RowWithNegativeNumberException
+     * @throws RowOffLimitsNumberException
+     * @throws ColumnOffLimitsNumberException
      */
     public function __construct(int $row, int $column)
     {
         if ($row < 0) {
-            throw new RowWithNegativeNumberException();
+            throw new RowOffLimitsNumberException();
         }
 
         if ($column < 0) {
-            throw new ColumnWithNegativeNumberException();
+            throw new ColumnOffLimitsNumberException();
         }
 
         $this->row = $row;
