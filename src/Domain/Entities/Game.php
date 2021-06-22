@@ -17,6 +17,9 @@ class Game
      */
     private array $moves;
 
+    // Keep track of new moves since initialization of this object.
+    private array $newMoves;
+
     private ?User $winner;
     private bool $isFinished;
 
@@ -33,6 +36,7 @@ class Game
         $this->winner = $winner;
         $this->isFinished = $isFinished;
         $this->moves = $squares;
+        $this->newMoves = [];
         $this->id = $id;
     }
 
@@ -102,10 +106,16 @@ class Game
     public function makeMove(Move $square): void
     {
         $this->moves[] = $square;
+        $this->newMoves[] = $square;
     }
 
     public function moves(): array
     {
         return $this->moves;
+    }
+
+    public function newMoves(): array
+    {
+        return $this->newMoves;
     }
 }
