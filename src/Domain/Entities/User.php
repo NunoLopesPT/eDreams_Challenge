@@ -13,7 +13,7 @@ class User
         $this->name = $name;
     }
 
-    public function id(): int
+    public function id(): ?int
     {
         return $this->id;
     }
