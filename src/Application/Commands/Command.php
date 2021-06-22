@@ -4,7 +4,7 @@ namespace eDreams\Application\Commands;
 
 abstract class Command
 {
-    protected string $description = '';
+    public const description = '';
 
     abstract static function handle(array $args = []): void;
 }
