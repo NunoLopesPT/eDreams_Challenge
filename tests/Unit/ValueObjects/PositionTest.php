@@ -2,8 +2,8 @@
 
 namespace eDreams\Tests\Unit\ValueObjects;
 
-use eDreams\Domain\Exceptions\Game\ColumnWithNegativeNumberException;
-use eDreams\Domain\Exceptions\Game\RowWithNegativeNumberException;
+use eDreams\Domain\Exceptions\Game\ColumnOffLimitsNumberException;
+use eDreams\Domain\Exceptions\Game\RowOffLimitsNumberException;
 use eDreams\Domain\ValueObjects\TicTacToe\Position;
 use PHPUnit\Framework\TestCase;
 
@@ -19,14 +19,14 @@ class PositionTest extends TestCase
 
     public function testCreatingPositionWithNegativeRow(): void
     {
-        $this->expectException(RowWithNegativeNumberException::class);
+        $this->expectException(RowOffLimitsNumberException::class);
 
         new Position(-1, 0);
     }
 
     public function testCreatingPositionWithNegativeColumn(): void
     {
-        $this->expectException(ColumnWithNegativeNumberException::class);
+        $this->expectException(ColumnOffLimitsNumberException::class);
 
         new Position(0, -1);
     }
