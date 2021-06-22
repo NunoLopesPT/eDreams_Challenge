@@ -19,7 +19,7 @@ services:
       - ./docker/dock-mysql/:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: root
+      MYSQL_USER: eDreams
       MYSQL_PASSWORD: root
       MYSQL_DATABASE: eDreams
     ports:
