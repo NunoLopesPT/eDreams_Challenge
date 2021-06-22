@@ -40,9 +40,8 @@ class CapsuleFactory
             'collation' => 'utf8_unicode_ci',
         ]);
 
-        // Set the capsule as global and boot the eloquent right away.
+        // Set the capsule as global.
         $capsule->setAsGlobal();
-        $capsule->bootEloquent();
 
         return $capsule;
     }
