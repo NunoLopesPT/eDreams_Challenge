@@ -1,6 +1,5 @@
 <?php
 
-use eDreams\Application\Commands\Command;
 use eDreams\Application\Commands\Database\RunMigrationsCommand;
 use eDreams\Application\Commands\Game\IsGameFinishedCommand;
 use eDreams\Application\Commands\Game\MakeMoveCommand;
