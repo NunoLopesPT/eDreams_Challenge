@@ -36,7 +36,7 @@ class IsGameFinishedCommand extends Command
                 echo 'Game finished. Winner was ' . $game->winner()->name() . " (#" . $game->winner()->id() . ").\n";
             }
         } else {
-            echo 'Game is still not finished';
+            echo "Game is still not finished\n";
         }
         exit(0);
     }

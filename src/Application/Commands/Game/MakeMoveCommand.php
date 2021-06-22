@@ -48,8 +48,7 @@ class MakeMoveCommand extends Command
             $db->commit();
         } catch (\Exception $e) {
             $db->rollBack();
-            echo $e->getMessage() . "\n";
-            exit(1);
+            throw $e;
         }
 
         echo "Move made successfully \n";

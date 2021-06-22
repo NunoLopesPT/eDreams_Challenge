@@ -32,4 +32,9 @@ if (!isset($args[0]) || !array_key_exists($args[0], $routes)) {
 }
 
 $command = $routes[array_shift($args)];
-$command::handle($args);
+try {
+    $command::handle($args);
+} catch (\Exception $e) {
+    echo $e->getMessage();
+    exit(1);
+}
