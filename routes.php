@@ -22,7 +22,7 @@ $routes = [
     'game:is_finished' => IsGameFinishedCommand::class,
 ];
 
-if (!array_key_exists($args[0], $routes)) {
+if (!isset($args[0]) || !array_key_exists($args[0], $routes)) {
     echo "Commands available: \n";
     foreach ($routes as $route => $class) {
         echo '    ' . $route . ' ' . $class::description . "\n";
@@ -31,11 +31,5 @@ if (!array_key_exists($args[0], $routes)) {
     exit(1);
 }
 
-$command = $routes[$args[0]];
-
-if ($command instanceof Command) {
-    $command::handle();
-} else {
-    echo 'Class is not an instance of Command ' . class_basename($command);
-    exit(1);
-}
+$command = $routes[array_shift($args)];
+$command::handle($args);
