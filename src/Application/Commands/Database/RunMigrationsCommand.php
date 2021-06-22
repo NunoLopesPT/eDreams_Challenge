@@ -1,6 +1,6 @@
 <?php
 
-namespace eDreams\Application\Commands\Game;
+namespace eDreams\Application\Commands\Database;
 
 use eDreams\Application\Commands\Command;
 use eDreams\Database\Factories\MigrationsServiceFactory;
