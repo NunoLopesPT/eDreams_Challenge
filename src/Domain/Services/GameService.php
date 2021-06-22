@@ -5,8 +5,10 @@ namespace eDreams\Domain\Services;
 use eDreams\Domain\Contracts\Repositories\GameRepository;
 use eDreams\Domain\Entities\Game;
 use eDreams\Domain\Entities\User;
+use eDreams\Domain\Exceptions\Game\ColumnOffLimitsNumberException;
 use eDreams\Domain\Exceptions\Game\GameIsAlreadyFinishedException;
 use eDreams\Domain\Exceptions\Game\PositionWithAMoveAlready;
+use eDreams\Domain\Exceptions\Game\RowOffLimitsNumberException;
 use eDreams\Domain\ValueObjects\TicTacToe\Move;
 use eDreams\Domain\ValueObjects\TicTacToe\Position;
 
@@ -38,6 +40,14 @@ class GameService
     {
         if ($game->isFinished()) {
             throw new GameIsAlreadyFinishedException();
+        }
+
+        if ($position->column() >= self::N) {
+            throw new ColumnOffLimitsNumberException();
+        }
+
+        if ($position->row() >= self::N) {
+            throw new RowOffLimitsNumberException();
         }
 
         if ($game->isFilled($position)) {
