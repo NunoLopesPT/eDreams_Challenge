@@ -60,7 +60,14 @@ class UsersRepositoryTest extends TestCase
     {
         $this->expectException(UserHasNoIdException::class);
 
-        $user = $this->usersRepository->delete(new User('SomeName'));
+        $this->usersRepository->delete(new User('SomeName'));
+    }
+
+    public function testDeleteUserThatWasAlreadyDeleted(): void
+    {
+        $result = $this->usersRepository->delete(new User('SomeName', 2147483647));
+
+        $this->assertFalse($result);
     }
 
     public function testDeleteUserThatWasCreated(): void
