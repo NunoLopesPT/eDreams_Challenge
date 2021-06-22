@@ -19,7 +19,7 @@ class UsersRepository extends AbstractRepository implements Contract
             ->first();
 
         if ($user === null) {
-            throw new UserNotFoundException();
+            throw new UserNotFoundException($id);
         }
 
         return new User(
@@ -31,7 +31,7 @@ class UsersRepository extends AbstractRepository implements Contract
     public function create(User $user): User
     {
         if ($user->id() !== null) {
-            throw new UserAlreadyCreatedException();
+            throw new UserAlreadyCreatedException($user);
         }
 
         $id = $this->capsule->table(self::table)
