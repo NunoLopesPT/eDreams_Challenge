@@ -36,7 +36,7 @@ class Game
         $this->id = $id;
     }
 
-    public function id(): int
+    public function id(): ?int
     {
         return $this->id;
     }

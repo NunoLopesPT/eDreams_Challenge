@@ -15,9 +15,9 @@ class GameTest extends TestCase
         $user1 = $this->createMock(User::class);
         $user2 = $this->createMock(User::class);
 
-        $game = new Game($user1, $user2, null, false, [], 1);
+        $game = new Game($user1, $user2, null, false, []);
 
-        $this->assertEquals(1, $game->id());
+        $this->assertNull($game->id());
         $this->assertSame($user1, $game->user1());
         $this->assertSame($user2, $game->user2());
         $this->assertNull($game->winner());
