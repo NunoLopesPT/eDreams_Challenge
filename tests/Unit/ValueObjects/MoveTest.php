@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class MoveTest extends TestCase
 {
-    public function testGettersNewUser(): void
+    public function testGettersNewMove(): void
     {
         $position = $this->createMock(Position::class);
         $user     = $this->createMock(User::class);
