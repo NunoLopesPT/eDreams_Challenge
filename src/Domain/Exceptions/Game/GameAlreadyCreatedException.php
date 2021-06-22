@@ -1,6 +1,6 @@
 <?php
 
-namespace eDreams\Domain\Exceptions\Users;
+namespace eDreams\Domain\Exceptions\Game;
 
 class GameAlreadyCreatedException extends \Exception
 {
